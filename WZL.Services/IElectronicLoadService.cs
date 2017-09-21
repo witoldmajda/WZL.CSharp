@@ -19,5 +19,6 @@ namespace WZL.Services
         void InputOn();
 
         void InputOff();
+
     }
 }
