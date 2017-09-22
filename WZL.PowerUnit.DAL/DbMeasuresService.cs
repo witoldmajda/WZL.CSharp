@@ -9,9 +9,7 @@ using WZL.Services;
 namespace WZL.PowerUnit.DAL
 {
     public class DbMeasuresService : IMeasuresServices
-    {
-       
-
+    {       
         public DbMeasuresService()
         {
            

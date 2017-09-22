@@ -25,9 +25,10 @@
                     
                     
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="0.33*" />
                         <!--Szerokość w proporcjach należy określić z gwiazdką-->
-                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="0.33*" />
+                        <ColumnDefinition Width="0.33*" />
                     </Grid.ColumnDefinitions>
 
                     <GroupBox Header="Pomiary" >
@@ -60,7 +61,7 @@
 
                     </GroupBox>
 
-                    <GroupBox Header="Historia" Grid.Column="1">
+                    <GroupBox Header="Historia Napięcie" Grid.Column="1">
                         <Grid>
                             
                             <ListBox 
@@ -68,12 +69,38 @@
                     ItemsSource="{Binding PSVM.Voltages}"
                         ScrollViewer.VerticalScrollBarVisibility="Visible"
                         />
+                            <ListBox 
+                    Margin="0,10,0,0"    
+                    ItemsSource="{Binding PSVM.Voltages}"
+                        ScrollViewer.VerticalScrollBarVisibility="Visible"
+                        />
+
                         </Grid>
                         
+                        
                     </GroupBox>
-                    
 
-             
+                    <GroupBox Header="Historia Prąd" Grid.Column="2">
+                        <Grid>
+
+                            <ListBox 
+                    Margin="0,10,0,0"    
+                    ItemsSource="{Binding PSVM.Currents}"
+                        ScrollViewer.VerticalScrollBarVisibility="Visible"
+                        />
+                            <ListBox 
+                    Margin="0,10,0,0"    
+                    ItemsSource="{Binding PSVM.Currents}"
+                        ScrollViewer.VerticalScrollBarVisibility="Visible"
+                        />
+
+                        </Grid>
+
+
+                    </GroupBox>
+
+
+
                 </Grid>
             </TabItem>
 

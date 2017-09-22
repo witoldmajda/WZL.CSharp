@@ -198,6 +198,25 @@ namespace WZL.PowerUnit.WpfClient.ViewModels
         //}
         #endregion
 
+        #region Currents
+       // private object _lock = new object(); // stworzenie obiektu do blokady wątku
+
+        private ObservableCollection<float> _currents; //lista która wysyła sygnał o zmianie ilości elementów
+
+        public ObservableCollection<float> Currents
+        {
+            get { return _currents; }
+
+            set
+            {
+                _currents = value;
+                BindingOperations.EnableCollectionSynchronization(_currents, _lock); //blokuje główny wątek na czas wywołania dodatkowego
+
+                OnPropoertyChanged("Currents");
+            }
+        }
+        #endregion
+
         public float SettingsVoltageHighLimit { get; } = 40; // właściwości  gdy nie ma set jest to wartość tylko do odczytu
         public float SettingsVoltageLowLimit { get; } = 0;
         public float SettingsCurrentHighLimit { get; } = 60; // właściwości gdy nie ma set jest to wartość tylko do odczytu
@@ -483,6 +502,8 @@ namespace WZL.PowerUnit.WpfClient.ViewModels
 
             Voltages = new ObservableCollection<float>();
 
+            Currents = new ObservableCollection<float>();
+
             MeasureSearchCriteria = new MeasureSearchCriteria();
 
             FrequencyInputService = new N10Service();
@@ -546,6 +567,9 @@ namespace WZL.PowerUnit.WpfClient.ViewModels
             SupplierCurrent = SupplierCurrentInputService.Get();
 
             Voltages.Add(this.Measure.Voltage);
+
+            Currents.Add(this.Measure.Current);
+
 
         }
 
