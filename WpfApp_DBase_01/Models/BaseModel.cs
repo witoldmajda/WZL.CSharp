@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace WpfApp_DBase_01
 {
     //klasa gotowa w celu rozwijania projektu
-    public abstract class Base : INotifyPropertyChanged
+    public abstract class BaseModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 

@@ -6,23 +6,23 @@ using System.Threading.Tasks;
 
 namespace WpfApp_DBase_01
 {
-    public class Table1 : Base
+    public class PersonModel : BaseModel
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public string Surname { get; set; }
         public string City { get; set; }
-        public string Country { get; set; }
 
-        public Table1()
+        public PersonModel()
         {
 
         }
 
-        public Table1(string name, string city, string country)
+        public PersonModel(string name, string surname, string city)
         {
             this.Name = name;
+            this.Surname = surname;
             this.City = city;
-            this.Country = country;
         }
     }
 }
