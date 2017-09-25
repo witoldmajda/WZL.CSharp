@@ -95,6 +95,7 @@ namespace WZL.CSharp.Models
             this.Manufacture = "Lumel";
         }
         //przeciążenie konstruktora
+       
 
         public Device(byte slaveId)
         {
