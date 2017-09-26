@@ -12,7 +12,7 @@ namespace RentABike.Model
 
         public DateTime RentDate { get; set; }
 
-        public <Nullable>DateTime ReturnDate { get; set; }
+        public Nullable <DateTime> ReturnDate { get; set; }
 
         public Bike Bike { get; set; }
 

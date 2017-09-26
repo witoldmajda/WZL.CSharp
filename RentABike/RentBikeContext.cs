@@ -8,6 +8,8 @@ using RentABike.Model;
 
 namespace RentABike
 {
+    //Klasa dziedzicząca po EntityFramework, obsługa bazy danych
+
     public class RentBikeContext : DbContext
     {
         //zestaw właściwości w którym wskazujemy jakie klasy chcemy obsługiwać
