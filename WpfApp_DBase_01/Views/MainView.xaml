@@ -17,18 +17,19 @@
             <Label Content="Surname" HorizontalAlignment="Left" Margin="10,69,0,0" VerticalAlignment="Top"/>
             <Grid Margin="10,-10,-10,10">
                 <Label Content="City" HorizontalAlignment="Left" Margin="10,106,0,0" VerticalAlignment="Top"/>
-                <TextBox x:Name="TextBox_Name" Text="{Binding Name}" HorizontalAlignment="Left" Height="23" Margin="98,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-                <TextBox x:Name="TextBox_Surname" Text="{Binding Surname}" HorizontalAlignment="Left" Height="23" Margin="98,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-                <TextBox x:Name="TextBox_City" Text="{Binding City}" HorizontalAlignment="Left" Height="23" Margin="98,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <TextBox x:Name="TextBox_Name" Text="{Binding T_Name}" HorizontalAlignment="Left" Height="23" Margin="98,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <TextBox x:Name="TextBox_Surname" Text="{Binding T_Surname}" HorizontalAlignment="Left" Height="23" Margin="98,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <TextBox x:Name="TextBox_City" Text="{Binding T_City}" HorizontalAlignment="Left" Height="23" Margin="98,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                 <Button x:Name="Button_Add" Command="{Binding AddCommand}" Content="Add" HorizontalAlignment="Left" Margin="28,159,0,0" VerticalAlignment="Top" Width="75"/>
                 <DataGrid ItemsSource="{Binding Persons}" HorizontalAlignment="Left" Height="176" Margin="269,34,0,0" VerticalAlignment="Top" Width="356" AutoGenerateColumns="False">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Id" Binding="{Binding PSVM.MeasureId}" IsReadOnly="True" />
-                        <DataGridTextColumn Header="Name" Binding="{Binding PSVM.MeasureDate}" IsReadOnly="True" />
-                        <DataGridTextColumn Header="Surname" Binding="{Binding PSVM.Voltage}" IsReadOnly="True"/>
-                        <DataGridTextColumn Header="City" Binding="{Binding PSVM.Current}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Id" Binding="{Binding Id}" IsReadOnly="True" />
+                        <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" />
+                        <DataGridTextColumn Header="Surname" Binding="{Binding Surname}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="City" Binding="{Binding City}" IsReadOnly="True"/>
                     </DataGrid.Columns>
                 </DataGrid>
+                
 
             </Grid>
 

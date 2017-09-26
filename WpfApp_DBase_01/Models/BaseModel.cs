@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WpfApp_DBase_01
+namespace WpfApp_DBase_01.Models
 {
     //klasa gotowa w celu rozwijania projektu
     public abstract class BaseModel : INotifyPropertyChanged

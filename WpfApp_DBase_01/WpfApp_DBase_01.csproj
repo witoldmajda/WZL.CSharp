@@ -75,6 +75,8 @@
     <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.SqlServer.Compact.4.0.8876.1\lib\net40\System.Data.SqlServerCe.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -93,7 +95,28 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Context.cs" />
+    <Compile Include="DbServices.cs" />
+    <Compile Include="Interfaces\IDbServices.cs" />
     <Compile Include="Models\BaseModel.cs" />
+    <Compile Include="ModelWPF_DBASE.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelWPF_DBASE.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelWPF_DBASE.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelWPF_DBASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelWPF_DBASE.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelWPF_DBASE.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Person.cs">
+      <DependentUpon>ModelWPF_DBASE.tt</DependentUpon>
+    </Compile>
     <Compile Include="RelayCommand.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="Models\PersonModel.cs" />
@@ -109,6 +132,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>WPF_DBASEDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="WPF_DBASEDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WPF_DBASEDataSet1.xsd</DependentUpon>
     </Compile>
     <Page Include="Views\MainView.xaml">
       <SubType>Designer</SubType>
@@ -133,6 +161,13 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EntityDeploy Include="ModelWPF_DBASE.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelWPF_DBASE.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="ModelWPF_DBASE.edmx.diagram">
+      <DependentUpon>ModelWPF_DBASE.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -148,6 +183,17 @@
     </None>
     <None Include="WPF_DBASEDataSet.xss">
       <DependentUpon>WPF_DBASEDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="WPF_DBASEDataSet1.xsc">
+      <DependentUpon>WPF_DBASEDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="WPF_DBASEDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>WPF_DBASEDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="WPF_DBASEDataSet1.xss">
+      <DependentUpon>WPF_DBASEDataSet1.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -166,6 +212,16 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ModelWPF_DBASE.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelWPF_DBASE.edmx</DependentUpon>
+      <LastGenOutput>ModelWPF_DBASE.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ModelWPF_DBASE.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelWPF_DBASE.edmx</DependentUpon>
+      <LastGenOutput>ModelWPF_DBASE.cs</LastGenOutput>
+    </Content>
     <Content Include="WPF_DBASE.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -173,6 +229,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>WPF_DBASE.mdf</DependentUpon>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.105.2\build\net46\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.105.2\build\net46\System.Data.SQLite.Core.targets')" />

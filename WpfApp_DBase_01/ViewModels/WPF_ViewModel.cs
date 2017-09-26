@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using WpfApp_DBase_01.Models;
 
 namespace WpfApp_DBase_01.ViewModels
 {
@@ -14,6 +15,10 @@ namespace WpfApp_DBase_01.ViewModels
     {
         SqlConnection polaczenie;
         SqlCommand komenda;
+
+        private DbServices Services;
+
+
 
         private ICommand _AddCommand;
 
@@ -42,38 +47,38 @@ namespace WpfApp_DBase_01.ViewModels
         }
 
 
-        private string _Name;
-        public string Name
+        private string _T_Name;
+        public string T_Name
         {
-            get { return _Name;  }
+            get { return _T_Name;  }
             set
             {
-              _Name = value;
-                OnPropoertyChanged(nameof(Name));
+              _T_Name = value;
+                OnPropoertyChanged(nameof(T_Name));
             }
             
         }
 
-        private string _Surname;
-        public string Surname
+        private string _T_Surname;
+        public string T_Surname
         {
-            get { return _Surname; }
+            get { return _T_Surname; }
             set
             {
-                _Surname = value;
-                OnPropoertyChanged(nameof(Surname));
+                _T_Surname = value;
+                OnPropoertyChanged(nameof(T_Surname));
             }
 
         }
 
-        private string _City;
-        public string City
+        private string _T_City;
+        public string T_City
         {
-            get { return _City;  }
+            get { return _T_City;  }
             set
             {
-              _City = value;
-                OnPropoertyChanged(nameof(City));
+              _T_City = value;
+                OnPropoertyChanged(nameof(T_City));
             }
             
         }
@@ -81,11 +86,12 @@ namespace WpfApp_DBase_01.ViewModels
        
         private void Add()
         {
-            polaczenie = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Dokumenty\WPF_DBASE.mdf;Integrated Security=True;Connect Timeout=30");
+            //polaczenie = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Dokumenty\WPF_DBASE.mdf;Integrated Security=True;Connect Timeout=30"); // DELL
+            polaczenie = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\WitekM\Source\Repos\WZLCSharp\WpfApp_DBase_01\WPF_DBASE.mdf;Integrated Security=True;Connect Timeout=30"); // Samsung
             polaczenie.Open();
             komenda = polaczenie.CreateCommand();
             komenda.CommandType = CommandType.Text;
-            komenda.CommandText = "insert into Person (Name, Surname, City) values('" + Name + "', '" + Surname + "', '" + City + "')";
+            komenda.CommandText = "insert into Person (Name, Surname, City) values('" + T_Name + "', '" + T_Surname + "', '" + T_City + "')";
             komenda.ExecuteNonQuery();
             if (polaczenie.State == ConnectionState.Open)
             {
@@ -105,6 +111,11 @@ namespace WpfApp_DBase_01.ViewModels
 
         public WPF_ViewModel()
         {
+            Services = new DbServices();
+
+            Persons = Services.Get();
+           
+
             //polaczenie = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\WitekM\Documents\WpfApp_Dbase_01.mdf;Integrated Security=True;Connect Timeout=30");
             //polaczenie.Open();
             //disp_data();

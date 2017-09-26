@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WpfApp_DBase_01
+namespace WpfApp_DBase_01.Models
 {
     public class PersonModel : BaseModel
     {
