@@ -20,6 +20,7 @@ namespace RentABike
         public RentBikeContext()
             :base("RentBike")
         {
+
         }
     }
 }
