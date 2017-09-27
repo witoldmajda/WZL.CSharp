@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using WpfApp_DBase_01.Models;
+using WpfApp_DBase_01;
 
 namespace WpfApp_DBase_01.ViewModels
 {
@@ -16,9 +17,9 @@ namespace WpfApp_DBase_01.ViewModels
         SqlConnection polaczenie;
         SqlCommand komenda;
 
-        private DbServices Services;
+        private DbServices Services = new DbServices();
 
-
+      //  Services = new DbServices();
 
         private ICommand _AddCommand;
 
@@ -83,35 +84,48 @@ namespace WpfApp_DBase_01.ViewModels
             
         }
 
-       
-        private void Add()
+        private PersonModel _PersonModel;
+        public PersonModel PersonModel
         {
-            //polaczenie = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Dokumenty\WPF_DBASE.mdf;Integrated Security=True;Connect Timeout=30"); // DELL
-            polaczenie = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\WitekM\Source\Repos\WZLCSharp\WpfApp_DBase_01\WPF_DBASE.mdf;Integrated Security=True;Connect Timeout=30"); // Samsung
-            polaczenie.Open();
-            komenda = polaczenie.CreateCommand();
-            komenda.CommandType = CommandType.Text;
-            komenda.CommandText = "insert into Person (Name, Surname, City) values('" + T_Name + "', '" + T_Surname + "', '" + T_City + "')";
-            komenda.ExecuteNonQuery();
-            if (polaczenie.State == ConnectionState.Open)
+            get
             {
-                MessageBox.Show("Polączenie z bazą danych", "Informacja", MessageBoxButton.OK, MessageBoxImage.Information);
+                return _PersonModel;
             }
-            MessageBox.Show("Record inserter sucesfully", "Informacja", MessageBoxButton.OK, MessageBoxImage.Information);
-            polaczenie.Close();
+            set
+            {
+                _PersonModel = value;
+                OnPropoertyChanged(nameof(PersonModel));
+            }
         }
 
+        //private void Add()
+        //{
+        //    //polaczenie = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Dokumenty\WPF_DBASE.mdf;Integrated Security=True;Connect Timeout=30"); // DELL
+        //    polaczenie = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\WitekM\Source\Repos\WZLCSharp\WpfApp_DBase_01\WPF_DBASE.mdf;Integrated Security=True;Connect Timeout=30"); // Samsung
+        //    polaczenie.Open();
+        //    komenda = polaczenie.CreateCommand();
+        //    komenda.CommandType = CommandType.Text;
+        //    komenda.CommandText = "insert into Person (Name, Surname, City) values('" + T_Name + "', '" + T_Surname + "', '" + T_City + "')";
+        //    komenda.ExecuteNonQuery();
+        //    if (polaczenie.State == ConnectionState.Open)
+        //    {
+        //        MessageBox.Show("Polączenie z bazą danych", "Informacja", MessageBoxButton.OK, MessageBoxImage.Information);
+        //    }
+        //    MessageBox.Show("Record inserter sucesfully", "Informacja", MessageBoxButton.OK, MessageBoxImage.Information);
+        //    polaczenie.Close();
+        //}
 
-
-
-
-
-
-
+        private void Add()
+        {
+            this.PersonModel = new PersonModel(T_Name, T_Surname, T_City);
+            Services.Add(this.PersonModel);
+                
+        }
+        
 
         public WPF_ViewModel()
         {
-            Services = new DbServices();
+            
 
             Persons = Services.Get();
            

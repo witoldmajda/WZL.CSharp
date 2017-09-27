@@ -99,24 +99,6 @@
     <Compile Include="DbServices.cs" />
     <Compile Include="Interfaces\IDbServices.cs" />
     <Compile Include="Models\BaseModel.cs" />
-    <Compile Include="ModelWPF_DBASE.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelWPF_DBASE.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModelWPF_DBASE.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelWPF_DBASE.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModelWPF_DBASE.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelWPF_DBASE.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Person.cs">
-      <DependentUpon>ModelWPF_DBASE.tt</DependentUpon>
-    </Compile>
     <Compile Include="RelayCommand.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="Models\PersonModel.cs" />
@@ -127,16 +109,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WPF_DBASEDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>WPF_DBASEDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="WPF_DBASEDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>WPF_DBASEDataSet1.xsd</DependentUpon>
     </Compile>
     <Page Include="Views\MainView.xaml">
       <SubType>Designer</SubType>
@@ -161,39 +133,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="ModelWPF_DBASE.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModelWPF_DBASE.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="ModelWPF_DBASE.edmx.diagram">
-      <DependentUpon>ModelWPF_DBASE.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="WPF_DBASEDataSet.xsc">
-      <DependentUpon>WPF_DBASEDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="WPF_DBASEDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>WPF_DBASEDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="WPF_DBASEDataSet.xss">
-      <DependentUpon>WPF_DBASEDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="WPF_DBASEDataSet1.xsc">
-      <DependentUpon>WPF_DBASEDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="WPF_DBASEDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>WPF_DBASEDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="WPF_DBASEDataSet1.xss">
-      <DependentUpon>WPF_DBASEDataSet1.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -210,25 +153,6 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="ModelWPF_DBASE.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelWPF_DBASE.edmx</DependentUpon>
-      <LastGenOutput>ModelWPF_DBASE.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="ModelWPF_DBASE.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelWPF_DBASE.edmx</DependentUpon>
-      <LastGenOutput>ModelWPF_DBASE.cs</LastGenOutput>
-    </Content>
-    <Content Include="WPF_DBASE.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="WPF_DBASE_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>WPF_DBASE.mdf</DependentUpon>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

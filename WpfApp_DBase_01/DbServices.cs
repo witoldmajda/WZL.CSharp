@@ -14,7 +14,20 @@ namespace WpfApp_DBase_01
         {
 
         }
-        
+
+        public void Add(PersonModel person)
+        {
+            using (var context = new Context())
+            {
+                //PersonModel person = new PersonModel();
+                //person.Name = T_Name;
+                //person.Surname = T_Surname;
+                //person.City = T_City;
+                context.Persons.Add(person);
+                context.SaveChanges();
+            }
+        }
+
         public List<PersonModel> Get()
         {
             
@@ -37,12 +50,14 @@ namespace WpfApp_DBase_01
 
                 //ekwiwalent zapytania powyżej z dodanym sortowaniem
 
-               
-                var persons = (
-                                from person in context.Persons                                                               
-                                select person
-                               )
-                               .ToList();
+
+                //var persons = (
+                //                from person in context.Persons                                                               
+                //                select person
+                //               )
+                //               .ToList();
+
+                var persons = context.Persons.ToList();
 
                 return persons;
             }
