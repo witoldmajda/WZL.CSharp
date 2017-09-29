@@ -5,10 +5,12 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows;
 using System.Windows.Input;
 using WpfApp_DBase_01.Models;
 using WpfApp_DBase_01;
+
 
 namespace WpfApp_DBase_01.ViewModels
 {
@@ -18,6 +20,9 @@ namespace WpfApp_DBase_01.ViewModels
         SqlCommand komenda;
 
         private DbServices Services = new DbServices();
+
+        //tworzenie zmiennej interfejsu
+        private Timer timer;
 
       //  Services = new DbServices();
 
@@ -125,9 +130,11 @@ namespace WpfApp_DBase_01.ViewModels
 
         public WPF_ViewModel()
         {
-            
 
-            Persons = Services.Get();
+            timer = new Timer(1000);
+            timer.Elapsed += Timer_Elapsed;
+            timer.Enabled = true;
+            
            
 
             //polaczenie = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\WitekM\Documents\WpfApp_Dbase_01.mdf;Integrated Security=True;Connect Timeout=30");
@@ -136,31 +143,37 @@ namespace WpfApp_DBase_01.ViewModels
             //polaczenie.Close();
         }
 
-        //    polaczenie.Open();
-        //        komenda = polaczenie.CreateCommand();
-        //        komenda.CommandType = CommandType.Text;
-        //        komenda.CommandText = "insert into Table1 (name, city, country) values('"+TextBox_name.Text+"', '"+TextBox_City.Text+"', '"+TextBox_Country.Text+"')";
-        //        komenda.ExecuteNonQuery();
-        //        if(polaczenie.State == ConnectionState.Open)
-        //        {
-        //            MessageBox.Show("Polączenie z bazą danych", "Informacja", MessageBoxButton.OK, MessageBoxImage.Information);
-        //        }
-        //MessageBox.Show("Record inserter sucesfully", "Informacja", MessageBoxButton.OK, MessageBoxImage.Information);
-        //        polaczenie.Close();
+        private void Timer_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            Persons = Services.Get();
+        }
 
 
-        //public void disp_data()
-        //{
-        //    // polaczenie.Open();
-        //    komenda = polaczenie.CreateCommand();
-        //    komenda.CommandType = CommandType.Text;
-        //    komenda.CommandText = "select * from Table1";
-        //    komenda.ExecuteNonQuery();
-        //    DataTable dt = new DataTable();
-        //    SqlDataAdapter da = new SqlDataAdapter(komenda);
-        //    DataSet ds = new DataSet();
-        //    da.Fill(ds);
-        //    Table1Data.ItemsSource = ds.Tables[0].DefaultView;
-        //}
+            //    polaczenie.Open();
+            //        komenda = polaczenie.CreateCommand();
+            //        komenda.CommandType = CommandType.Text;
+            //        komenda.CommandText = "insert into Table1 (name, city, country) values('"+TextBox_name.Text+"', '"+TextBox_City.Text+"', '"+TextBox_Country.Text+"')";
+            //        komenda.ExecuteNonQuery();
+            //        if(polaczenie.State == ConnectionState.Open)
+            //        {
+            //            MessageBox.Show("Polączenie z bazą danych", "Informacja", MessageBoxButton.OK, MessageBoxImage.Information);
+            //        }
+            //MessageBox.Show("Record inserter sucesfully", "Informacja", MessageBoxButton.OK, MessageBoxImage.Information);
+            //        polaczenie.Close();
+
+
+            //public void disp_data()
+            //{
+            //    // polaczenie.Open();
+            //    komenda = polaczenie.CreateCommand();
+            //    komenda.CommandType = CommandType.Text;
+            //    komenda.CommandText = "select * from Table1";
+            //    komenda.ExecuteNonQuery();
+            //    DataTable dt = new DataTable();
+            //    SqlDataAdapter da = new SqlDataAdapter(komenda);
+            //    DataSet ds = new DataSet();
+            //    da.Fill(ds);
+            //    Table1Data.ItemsSource = ds.Tables[0].DefaultView;
+            //}
+        }
     }
-}
