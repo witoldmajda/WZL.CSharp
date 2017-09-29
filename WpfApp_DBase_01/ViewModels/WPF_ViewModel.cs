@@ -40,6 +40,19 @@ namespace WpfApp_DBase_01.ViewModels
             }
         }
 
+        private ICommand _EditCommand;
+        public ICommand EditCommand
+        {
+            get
+            {
+                if(_EditCommand == null)
+                {
+                    _EditCommand = new RelayCommand(Edit);
+                }
+                return _EditCommand;
+            }
+        }
+
         private List<PersonModel> _Persons;
         public List<PersonModel> Persons
         {
@@ -126,16 +139,21 @@ namespace WpfApp_DBase_01.ViewModels
             Services.Add(this.PersonModel);
                 
         }
+
+        private void Edit()
+        {
+
+        }
         
 
         public WPF_ViewModel()
         {
 
-            timer = new Timer(1000);
-            timer.Elapsed += Timer_Elapsed;
-            timer.Enabled = true;
-            
-           
+            //timer = new Timer(1000);
+            //timer.Elapsed += Timer_Elapsed;
+            //timer.Enabled = true;
+            Persons = Services.Get();
+
 
             //polaczenie = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\WitekM\Documents\WpfApp_Dbase_01.mdf;Integrated Security=True;Connect Timeout=30");
             //polaczenie.Open();

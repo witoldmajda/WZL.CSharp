@@ -98,9 +98,13 @@
     <Compile Include="Context.cs" />
     <Compile Include="DbServices.cs" />
     <Compile Include="Interfaces\IDbServices.cs" />
-    <Compile Include="Migrations\201709281245161_First.cs" />
-    <Compile Include="Migrations\201709281245161_First.Designer.cs">
-      <DependentUpon>201709281245161_First.cs</DependentUpon>
+    <Compile Include="Migrations\201709271022287_InitialCreate.cs" />
+    <Compile Include="Migrations\201709271022287_InitialCreate.Designer.cs">
+      <DependentUpon>201709271022287_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709290819140_Second.cs" />
+    <Compile Include="Migrations\201709290819140_Second.Designer.cs">
+      <DependentUpon>201709290819140_Second.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BaseModel.cs" />
@@ -134,8 +138,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\201709281245161_First.resx">
-      <DependentUpon>201709281245161_First.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201709271022287_InitialCreate.resx">
+      <DependentUpon>201709271022287_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709290819140_Second.resx">
+      <DependentUpon>201709290819140_Second.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

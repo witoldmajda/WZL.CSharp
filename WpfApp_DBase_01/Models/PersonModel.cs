@@ -12,6 +12,13 @@ namespace WpfApp_DBase_01.Models
         public string Name { get; set; }
         public string Surname { get; set; }
         public string City { get; set; }
+        public string Details
+        {
+            get
+            {
+                return $"Szczegóły {this.Name}";
+            }
+        }
 
         public PersonModel()
         {

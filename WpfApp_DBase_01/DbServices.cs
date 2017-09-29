@@ -28,6 +28,11 @@ namespace WpfApp_DBase_01
             }
         }
 
+        public PersonModel Edit(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<PersonModel> Get()
         {
             

@@ -27,7 +27,20 @@
                         <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" />
                         <DataGridTextColumn Header="Surname" Binding="{Binding Surname}" IsReadOnly="True"/>
                         <DataGridTextColumn Header="City" Binding="{Binding City}" IsReadOnly="True"/>
+                        <DataGridTemplateColumn Header="Button">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Name="Button_Edit" Content="Edit" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
                     </DataGrid.Columns>
+                    <DataGrid.RowDetailsTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Details}" Margin="10" />
+                        </DataTemplate>
+                    </DataGrid.RowDetailsTemplate>
+
                 </DataGrid>
                 
 

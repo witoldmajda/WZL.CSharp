@@ -10,6 +10,7 @@ namespace WpfApp_DBase_01.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
+            ContextKey = "WpfApp_DBase_01.Context";
         }
 
         protected override void Seed(WpfApp_DBase_01.Context context)
