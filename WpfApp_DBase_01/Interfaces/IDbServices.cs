@@ -10,5 +10,9 @@ namespace WpfApp_DBase_01.Interfaces
     public interface IDbServices
     {
         List<PersonModel> Get();
+
+        void Add(PersonModel person);
+
+        PersonModel Edit(int id);
     }
 }

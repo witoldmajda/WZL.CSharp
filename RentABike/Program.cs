@@ -10,13 +10,96 @@ namespace RentABike
 {
     class Program
     {
+        private static string bikeNr;
+
         static void Main(string[] args)
         {
-            //ReturnRent();
+            do
+            {
+                NextAction();
+            }
+            while (Console.ReadKey(true).Key != ConsoleKey.Escape);   //znak wprowadzony z klawiatury różny od Escape
 
-            //AddRent();
 
-            //  AddBikes();
+        }
+
+        private static void NextAction()
+        {
+           
+                System.Console.WriteLine("Wybież co chcesz zrobić:");
+                System.Console.WriteLine("1: Wyświetlanie rowerów");
+                System.Console.WriteLine("2: Dodanie roweru");
+                System.Console.WriteLine("3: Usówanie roweru o wybranym ID");
+                System.Console.WriteLine("4: Wypożyczenie roweru");
+                System.Console.WriteLine("5: Zwrot roweru");
+                System.Console.WriteLine("6: Wypełnienie bazy rowerów od zera");
+                System.Console.WriteLine("Twój wybór: ");
+                //int actionId = Convert.ToInt32(Console.ReadLine());
+                var actionId = Console.ReadKey(true);                                
+
+                switch (actionId.KeyChar)
+                {
+                    case '1':
+                        ShowBikes();
+                        break;
+
+                    case '2':
+                        AddOneBike();
+                        break;
+                    case '3':
+                        DeleteBike();
+                        break;
+                    case '4':
+                        AddRent();
+                        break;
+                    case '5':
+                        ReturnRent();
+                        break;
+                    case '6':
+                        AddBikes();
+                        break;
+                    default:
+                        break;
+
+                }
+           
+        }
+
+        private static void ShowBikes()
+        {
+            using (var context = new RentBikeContext())
+            {
+                foreach (var bikes in context.Bikes.ToList())
+                {
+                    System.Console.WriteLine($"Id: {bikes.BikeId}");
+                    System.Console.WriteLine($"Numer: {bikes.Number}");
+                    System.Console.WriteLine($"Typ: {bikes.BikeType}");
+                    System.Console.WriteLine();
+                }
+                NextAction();
+            }
+        }
+
+        private static void DeleteBike()
+        {
+            System.Console.WriteLine("Podaj numer roweru: ");
+            bikeNr = Console.ReadLine();
+            Console.WriteLine();
+
+
+            using (var context = new RentBikeContext())
+            {
+                //wyszukiwanie roweru o numerze
+                var bike = context.Bikes.Where(b => b.Number == bikeNr).First();
+
+                //usówanie wskazanego roweru
+                context.Bikes.Remove(bike);
+
+                //zapis polecenia do bazy
+                context.SaveChanges();
+
+                NextAction();
+            }
         }
 
         private static void ReturnRent()
@@ -34,6 +117,8 @@ namespace RentABike
                 rent.ReturnDate = rent.RentDate.AddHours(2);
 
                 context.SaveChanges();
+
+                NextAction();
             }
         }
 
@@ -55,7 +140,7 @@ namespace RentABike
 
                 context.SaveChanges();
 
-
+                NextAction();
             }
         }
 
@@ -76,6 +161,59 @@ namespace RentABike
                 context.Bikes.AddRange(bikes);
 
                 context.SaveChanges(); // zapisanie do bazy danych 
+
+                NextAction();
+            }
+        }
+
+        private static void AddOneBike()
+        {
+            Bike bike = new Bike();
+           
+
+            System.Console.WriteLine("Podaj numer roweru: ");
+            bike.Number = Console.ReadLine();
+            Console.WriteLine();
+
+            System.Console.WriteLine("Wybierz typ roweru: ");                 
+
+            using (var context = new RentBikeContext())//twożony obiekt kontekstu
+            {
+                BikeType typ = BikeType.Mountain;
+                int count = 0;
+                for(typ = BikeType.Mountain; typ <= BikeType.Town;  typ++)
+                
+                {
+                    System.Console.WriteLine($"{count}: {typ}");
+                    count++;
+                    //System.Console.WriteLine();
+                }
+
+                int bikeType = Convert.ToInt32(Console.ReadLine());
+                System.Console.WriteLine();
+
+                
+                
+                switch (bikeType)
+                {
+                    case 0:
+                        bike.BikeType = BikeType.Mountain;
+                        break;
+                    case 1:
+                        bike.BikeType = BikeType.Road;
+                        break;
+                    case 2:
+                        bike.BikeType = BikeType.Town;
+                        break;
+                    default:
+                        break;
+                }                
+
+                //metoda AddRange śledzi przekazaną listę obiektów, czy zostały dodane, zmienione, czy usunięte
+                context.Bikes.Add(bike);
+                context.SaveChanges(); // zapisanie do bazy danych 
+                Console.WriteLine();
+                NextAction();
             }
         }
     }

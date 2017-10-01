@@ -20,7 +20,7 @@ namespace WZL.PowerUnit.DAL
 
             //:base znaczy wywołaj konstruktor bazowy
         public PowerUnitContext()
-            : base("PowerUnitConnection")
+            : base("PowerUnitConnection")            
         {
 
         }

@@ -20,8 +20,9 @@ namespace WpfApp_DBase_01
 
         //:base znaczy wywołaj konstruktor bazowy
 
+        //:base("WPF_DBASEConnectionString") //określamy nazwę nowo tworzonej bazy danych
         public Context()
-            :base("WPF_DBASEConnectionString") //określamy nazwę nowo tworzonej bazy danych
+            :base("WPF_DBase2") //określamy nazwę nowo tworzonej bazy danych
         {
         }
     }

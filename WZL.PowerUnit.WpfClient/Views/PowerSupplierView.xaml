@@ -177,8 +177,9 @@
                                     <Label Content="Okres: " VerticalAlignment="Center" />
                                 <DatePicker SelectedDate="{Binding PSVM.MeasureSearchCriteria.StartDate}" Width="150" Margin="5" />
                                 <DatePicker SelectedDate="{Binding PSVM.MeasureSearchCriteria.EndDate}" Width="150" Margin="5" />
-                                    
-                                </StackPanel>
+                            
+
+                            </StackPanel>
                             </DockPanel>
 
 
@@ -186,11 +187,11 @@
                         </GroupBox>
                     <DataGrid ItemsSource="{Binding PSVM.Measures}" AutoGenerateColumns="False">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Id" Binding="{Binding PSVM.MeasureId}" IsReadOnly="True" />
-                            <DataGridTextColumn Header="Data" Binding="{Binding PSVM.MeasureDate}" IsReadOnly="True" />
-                            <DataGridTextColumn Header="Napięcie [V[" Binding="{Binding PSVM.Voltage}" IsReadOnly="True"/>
-                            <DataGridTextColumn Header="Prąd [A]" Binding="{Binding PSVM.Current}" IsReadOnly="True"/>
-                            <DataGridTextColumn Header="Moc" Binding="{Binding PSVM.Power}" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Id" Binding="{Binding MeasureId}" IsReadOnly="True" />
+                            <DataGridTextColumn Header="Data" Binding="{Binding MeasureDate}" IsReadOnly="True" />
+                            <DataGridTextColumn Header="Napięcie [V[" Binding="{Binding Voltage}" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Prąd [A]" Binding="{Binding Current}" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Moc" Binding="{Binding Power}" IsReadOnly="True"/>
                         </DataGrid.Columns>
                     
                     </DataGrid>
