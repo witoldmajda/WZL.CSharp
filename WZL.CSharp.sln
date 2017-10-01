@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp_DBase_01", "WpfApp_D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RentABike", "RentABike\RentABike.csproj", "{68373AF9-6595-4CBB-8269-9E43AEC835C5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfTutorialSamples.DataBinding2", "WpfTutorialSamples.DataBinding2\WpfTutorialSamples.DataBinding2.csproj", "{B44DD3AA-E08C-4B82-A990-C72FBD6E7564}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,10 @@ Global
 		{68373AF9-6595-4CBB-8269-9E43AEC835C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{68373AF9-6595-4CBB-8269-9E43AEC835C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{68373AF9-6595-4CBB-8269-9E43AEC835C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B44DD3AA-E08C-4B82-A990-C72FBD6E7564}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B44DD3AA-E08C-4B82-A990-C72FBD6E7564}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B44DD3AA-E08C-4B82-A990-C72FBD6E7564}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B44DD3AA-E08C-4B82-A990-C72FBD6E7564}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
