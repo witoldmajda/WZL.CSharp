@@ -21,7 +21,8 @@
                 <TextBox x:Name="TextBox_Surname" Text="{Binding T_Surname}" HorizontalAlignment="Left" Height="23" Margin="98,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                 <TextBox x:Name="TextBox_City" Text="{Binding T_City}" HorizontalAlignment="Left" Height="23" Margin="98,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                 <Button x:Name="Button_Add" Command="{Binding AddCommand}" Content="Add" HorizontalAlignment="Left" Margin="28,159,0,0" VerticalAlignment="Top" Width="75"/>
-                <DataGrid ItemsSource="{Binding Persons}" HorizontalAlignment="Left" Height="176" Margin="269,34,0,0" VerticalAlignment="Top" Width="356" AutoGenerateColumns="False">
+                <Button x:Name="Button_Edit" Command="{Binding EditCommand}" Content="Edit" HorizontalAlignment="Left" Margin="118,159,0,0" VerticalAlignment="Top" Width="75"/>
+                <DataGrid ItemsSource="{Binding Persons}" SelectionMode="Single" SelectionUnit="FullRow" HorizontalAlignment="Left" Height="176" Margin="269,34,0,0" VerticalAlignment="Top" Width="356" AutoGenerateColumns="False">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Id" Binding="{Binding Id}" IsReadOnly="True" />
                         <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" />

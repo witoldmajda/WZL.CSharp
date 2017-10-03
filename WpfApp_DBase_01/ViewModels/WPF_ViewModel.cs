@@ -53,6 +53,7 @@ namespace WpfApp_DBase_01.ViewModels
             }
         }
 
+
         private List<PersonModel> _Persons;
         public List<PersonModel> Persons
         {
@@ -142,7 +143,7 @@ namespace WpfApp_DBase_01.ViewModels
 
         private void Edit()
         {
-
+            
         }
         
 

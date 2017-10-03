@@ -27,6 +27,7 @@ namespace WpfApp_DBase_01.Views
         public MainView()
         {
             InitializeComponent();
+            
         }
        
     }
