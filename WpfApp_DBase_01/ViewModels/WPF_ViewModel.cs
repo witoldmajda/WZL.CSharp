@@ -117,6 +117,22 @@ namespace WpfApp_DBase_01.ViewModels
             }
         }
 
+        private PersonModel _sellectedPerson;
+        public PersonModel SellectedPerson
+        {
+            get { return _sellectedPerson; }
+            set
+            {
+                if(_sellectedPerson != value)
+                {
+                    _sellectedPerson = value;
+                    OnPropoertyChanged(nameof(SellectedPerson));
+                }
+            }
+        }
+
+
+
         //private void Add()
         //{
         //    //polaczenie = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Dokumenty\WPF_DBASE.mdf;Integrated Security=True;Connect Timeout=30"); // DELL
@@ -143,7 +159,7 @@ namespace WpfApp_DBase_01.ViewModels
 
         private void Edit()
         {
-            
+            Services.Edit(SellectedPerson.Id);
         }
         
 

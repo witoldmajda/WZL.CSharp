@@ -30,7 +30,12 @@ namespace WpfApp_DBase_01
 
         public PersonModel Edit(int id)
         {
-            throw new NotImplementedException();
+            using (var context = new Context())
+            {
+               var selected =  context.Persons.Where(sel => sel.Id == id);
+
+                return selected;
+            }
         }
 
         public List<PersonModel> Get()
