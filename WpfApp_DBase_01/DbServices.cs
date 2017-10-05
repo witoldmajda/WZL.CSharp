@@ -28,20 +28,23 @@ namespace WpfApp_DBase_01
             }
         }
 
+        //pobranie z bazy danych elementu o przekazanym id
         public PersonModel Edit(int id)
         {
             using (var context = new Context())
             {
-               var selected =  context.Persons.Where(sel => sel.Id == id);
+                var query = from sel in context.Persons
+                            where sel.Id == id
+                            select sel;
+
+                var selected = query.SingleOrDefault();
 
                 return selected;
             }
         }
 
         public List<PersonModel> Get()
-        {
-            
-
+        {            
             using (var context = new Context())
             {
                 //wyniki z bazy danych do listy

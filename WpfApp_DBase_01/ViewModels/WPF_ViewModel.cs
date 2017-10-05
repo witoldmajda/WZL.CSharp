@@ -10,6 +10,7 @@ using System.Windows;
 using System.Windows.Input;
 using WpfApp_DBase_01.Models;
 using WpfApp_DBase_01;
+using WpfApp_DBase_01.Views;
 
 
 namespace WpfApp_DBase_01.ViewModels
@@ -157,9 +158,18 @@ namespace WpfApp_DBase_01.ViewModels
                 
         }
 
+        
+        //przypisanie zmiennych z bazy danych do elementów formularza
         private void Edit()
         {
-            Services.Edit(SellectedPerson.Id);
+            this.PersonModel = Services.Edit(SellectedPerson.Id);
+            this.T_Name = this.PersonModel.Name;  // zamiennie this.T_Name = SellectedPerson.Name;
+            this.T_Surname = this.PersonModel.Surname;
+            this.T_City = this.PersonModel.City;
+
+            
+
+
         }
         
 
