@@ -76,6 +76,10 @@ namespace WpfApp_DBase_01.ViewModels
             {
               _T_Name = value;
                 OnPropoertyChanged(nameof(T_Name));
+                if(value != _T_Name)
+                {
+                    this.AddIsEnabled = true;
+                }
             }
             
         }
@@ -132,7 +136,98 @@ namespace WpfApp_DBase_01.ViewModels
             }
         }
 
+        private bool _AddIsEnabled;
+        public bool AddIsEnabled
+        {
+            get
+            {
+                return _AddIsEnabled;
+            }
+            set
+            {
+                _AddIsEnabled = value;
+                OnPropoertyChanged(nameof(AddIsEnabled));
 
+            }
+        }
+
+        private bool _SaveIsEnabled;
+        public bool SaveIsEnabled
+        {
+            get
+            {
+                return _SaveIsEnabled;
+            }
+            set
+            {
+                _SaveIsEnabled = value;
+                OnPropoertyChanged(nameof(SaveIsEnabled));
+
+            }
+        }
+
+        private bool _DeleteIsEnabled;
+        public bool DeleteIsEnabled
+        {
+            get
+            {
+                return _DeleteIsEnabled;
+            }
+            set
+            {
+                _DeleteIsEnabled = value;
+                OnPropoertyChanged(nameof(DeleteIsEnabled));
+
+            }
+        }
+
+        private bool _EditIsEnabled;
+        public bool EditIsEnabled
+        {
+            get
+            {
+                return _EditIsEnabled;
+            }
+            set
+            {
+                _EditIsEnabled = value;
+                OnPropoertyChanged(nameof(EditIsEnabled));
+
+            }
+        }
+
+        private bool _Details;
+        public bool Details
+        {
+            get
+            {
+                return _Details;
+            }
+            set
+            {
+                _Details = value;
+                OnPropoertyChanged(nameof(Details));                
+            }
+        }
+
+        private bool _TextBoxIsVisible;
+        public bool TextBoxIsVisible
+        {
+            get
+            {
+                return _TextBoxIsVisible;
+            }
+            set
+            {
+                _TextBoxIsVisible = value;
+                OnPropoertyChanged(nameof(TextBoxIsVisible));
+                if(_TextBoxIsVisible == true)
+                {
+                    this.EditIsEnabled = true;
+                }
+                
+            }
+        }
 
         //private void Add()
         //{
@@ -166,8 +261,11 @@ namespace WpfApp_DBase_01.ViewModels
             this.T_Name = this.PersonModel.Name;  // zamiennie this.T_Name = SellectedPerson.Name;
             this.T_Surname = this.PersonModel.Surname;
             this.T_City = this.PersonModel.City;
+            this.AddIsEnabled = false;
+            this.SaveIsEnabled = true;
+            this.DeleteIsEnabled = true;
+            this.EditIsEnabled = true;
 
-            
 
 
         }
@@ -179,8 +277,14 @@ namespace WpfApp_DBase_01.ViewModels
             //timer = new Timer(1000);
             //timer.Elapsed += Timer_Elapsed;
             //timer.Enabled = true;
+            this.AddIsEnabled = true;
+            this.SaveIsEnabled = false;
+            this.DeleteIsEnabled = false;
+            this.EditIsEnabled = false;
+
             Persons = Services.Get();
 
+           
 
             //polaczenie = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\WitekM\Documents\WpfApp_Dbase_01.mdf;Integrated Security=True;Connect Timeout=30");
             //polaczenie.Open();

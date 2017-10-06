@@ -20,8 +20,10 @@
                 <TextBox x:Name="TextBox_Name" Text="{Binding T_Name}" HorizontalAlignment="Left" Height="23" Margin="98,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                 <TextBox x:Name="TextBox_Surname" Text="{Binding T_Surname}" HorizontalAlignment="Left" Height="23" Margin="98,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                 <TextBox x:Name="TextBox_City" Text="{Binding T_City}" HorizontalAlignment="Left" Height="23" Margin="98,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-                <Button x:Name="Button_Add" Command="{Binding AddCommand}" Content="Add" HorizontalAlignment="Left" Margin="28,159,0,0" VerticalAlignment="Top" Width="75"/>
-                <Button x:Name="Button_Edit" Command="{Binding EditCommand}" Content="Edit" HorizontalAlignment="Left" Margin="118,159,0,0" VerticalAlignment="Top" Width="75"/>
+                <Button x:Name="Button_Add" Command="{Binding AddCommand}" IsEnabled="{Binding AddIsEnabled}" Content="Add" HorizontalAlignment="Left" Margin="28,159,0,0" VerticalAlignment="Top" Width="75"/>
+                <Button x:Name="Button_Edit" Command="{Binding EditCommand}" IsEnabled="{Binding EditIsEnabled}" Content="Edit" HorizontalAlignment="Left" Margin="118,159,0,0" VerticalAlignment="Top" Width="75"/>
+                <Button x:Name="Button_Save" Command="{Binding SaveCommand}" IsEnabled="{Binding SaveIsEnabled}" Content="Save" HorizontalAlignment="Left" Margin="28,189,0,0" VerticalAlignment="Top" Width="75"/>
+                <Button x:Name="Button_Delete" Command="{Binding DeleteCommand}" IsEnabled="{Binding DeleteIsEnabled}" Content="Delete" HorizontalAlignment="Left" Margin="118,189,0,0" VerticalAlignment="Top" Width="75"/>
                 <DataGrid ItemsSource="{Binding Persons}" SelectionMode="Single" SelectionUnit="FullRow" SelectedItem="{Binding SellectedPerson}" HorizontalAlignment="Left" Height="176" Margin="269,34,0,0" VerticalAlignment="Top" Width="356" AutoGenerateColumns="False">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Id" Binding="{Binding Id}" IsReadOnly="True" />
@@ -38,7 +40,7 @@
                     </DataGrid.Columns>
                     <DataGrid.RowDetailsTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{Binding Details}" Margin="10" />
+                            <TextBlock IsHitTestVisible="{Binding TextBoxIsVisible}" Text="{Binding Details}" Margin="10" />
                         </DataTemplate>
                     </DataGrid.RowDetailsTemplate>
 

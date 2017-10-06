@@ -16,7 +16,7 @@ namespace WpfApp_DBase_01.Models
         {
             get
             {
-                return $"Szczegóły {this.Name}";
+                return $"Szczegóły {this.Name}";                
             }
         }
 

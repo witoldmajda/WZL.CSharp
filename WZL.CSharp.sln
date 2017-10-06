@@ -31,6 +31,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RentABike", "RentABike\Rent
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfTutorialSamples.DataBinding2", "WpfTutorialSamples.DataBinding2\WpfTutorialSamples.DataBinding2.csproj", "{B44DD3AA-E08C-4B82-A990-C72FBD6E7564}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFMVVMButtons", "WPFMVVMButtons-master\WPFMVVMButtons\WPFMVVMButtons.csproj", "{A74E55E6-CEA4-481C-898F-0E138DDF6035}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -93,6 +95,10 @@ Global
 		{B44DD3AA-E08C-4B82-A990-C72FBD6E7564}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B44DD3AA-E08C-4B82-A990-C72FBD6E7564}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B44DD3AA-E08C-4B82-A990-C72FBD6E7564}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A74E55E6-CEA4-481C-898F-0E138DDF6035}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A74E55E6-CEA4-481C-898F-0E138DDF6035}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A74E55E6-CEA4-481C-898F-0E138DDF6035}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A74E55E6-CEA4-481C-898F-0E138DDF6035}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
