@@ -11,7 +11,7 @@ using System.Windows.Input;
 using WpfApp_DBase_01.Models;
 using WpfApp_DBase_01;
 using WpfApp_DBase_01.Views;
-
+using System.Windows.Navigation;
 
 namespace WpfApp_DBase_01.ViewModels
 {
@@ -136,6 +136,10 @@ namespace WpfApp_DBase_01.ViewModels
                     _sellectedPerson = value;
                     OnPropoertyChanged(nameof(SellectedPerson));
                     this.EditIsEnabled = true;
+                    if(_sellectedPerson == null)
+                    {
+                        this.EditIsEnabled = true;
+                    }
                 }
             }
         }
@@ -155,7 +159,7 @@ namespace WpfApp_DBase_01.ViewModels
                 {
                     _UnSellectedPerson = value;
                     OnPropoertyChanged(nameof(UnSellectedPerson));
-                    this.EditIsEnabled = true;
+                    this.EditIsEnabled = false;
                 }
             }
         }
@@ -166,6 +170,15 @@ namespace WpfApp_DBase_01.ViewModels
         //{
         //    this.EditIsEnabled = false;
         //}
+
+        public ICommand Refresh => new RelayCommand(() => DoRefresh());
+
+        private void DoRefresh()
+        {
+            
+        }
+
+
 
 
         private bool _AddIsEnabled;

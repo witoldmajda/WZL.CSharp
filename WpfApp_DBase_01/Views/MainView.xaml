@@ -10,12 +10,12 @@
     <Window.DataContext>
         <vm:WPF_ViewModel />
     </Window.DataContext>
-    
+
     <Grid>
         <Label Content="Name" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top"/>
         <Grid>
             <Label Content="Surname" HorizontalAlignment="Left" Margin="10,69,0,0" VerticalAlignment="Top"/>
-            <Grid Margin="10,-10,-10,10">
+            <Grid Margin="10,-9,-10,10">
                 <Label Content="City" HorizontalAlignment="Left" Margin="10,106,0,0" VerticalAlignment="Top"/>
                 <TextBox x:Name="TextBox_Name" Text="{Binding T_Name}" HorizontalAlignment="Left" Height="23" Margin="98,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                 <TextBox x:Name="TextBox_Surname" Text="{Binding T_Surname}" HorizontalAlignment="Left" Height="23" Margin="98,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
@@ -24,7 +24,7 @@
                 <Button x:Name="Button_Edit" Command="{Binding EditCommand}" IsEnabled="{Binding EditIsEnabled}" Content="Edit" HorizontalAlignment="Left" Margin="118,159,0,0" VerticalAlignment="Top" Width="75"/>
                 <Button x:Name="Button_Save" Command="{Binding SaveCommand}" IsEnabled="{Binding SaveIsEnabled}" Content="Save" HorizontalAlignment="Left" Margin="28,189,0,0" VerticalAlignment="Top" Width="75"/>
                 <Button x:Name="Button_Delete" Command="{Binding DeleteCommand}" IsEnabled="{Binding DeleteIsEnabled}" Content="Delete" HorizontalAlignment="Left" Margin="118,189,0,0" VerticalAlignment="Top" Width="75"/>
-                <DataGrid ItemsSource="{Binding Persons}" SelectionMode="Single" SelectionUnit="FullRow" Unselected="{Binding UnSellectedPerson}" SelectedItem="{Binding SellectedPerson}" HorizontalAlignment="Left" Height="176" Margin="269,34,0,0" VerticalAlignment="Top" Width="356" AutoGenerateColumns="False">
+                <DataGrid ItemsSource="{Binding Persons}" SelectionMode="Single" SelectionUnit="FullRow" SelectedItem="{Binding SellectedPerson}" RowDetailsVisibilityMode="VisibleWhenSelected" HorizontalAlignment="Left" Height="176" Margin="269,34,0,0" VerticalAlignment="Top" Width="356" AutoGenerateColumns="False">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Id" Binding="{Binding Id}" IsReadOnly="True" />
                         <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" />
@@ -46,6 +46,7 @@
 
                 </DataGrid>
                 <TextBox HorizontalAlignment="Left" Height="23" Margin="118,222,0,0" TextWrapping="Wrap" Text="{Binding SellectedPerson.Id}" VerticalAlignment="Top" Width="120"/>
+                <Button Content="Refresh" HorizontalAlignment="Left" Command="{Binding Refresh}"  Margin="28,225,0,0" VerticalAlignment="Top" Width="75"/>
 
 
             </Grid>
