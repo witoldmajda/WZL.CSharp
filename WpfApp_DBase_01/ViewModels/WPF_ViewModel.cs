@@ -125,16 +125,48 @@ namespace WpfApp_DBase_01.ViewModels
         private PersonModel _sellectedPerson;
         public PersonModel SellectedPerson
         {
-            get { return _sellectedPerson; }
+            get
+            {
+                return _sellectedPerson;                
+            }
             set
             {
                 if(_sellectedPerson != value)
                 {
                     _sellectedPerson = value;
                     OnPropoertyChanged(nameof(SellectedPerson));
+                    this.EditIsEnabled = true;
                 }
             }
         }
+
+        //UnSellectedPerson
+
+        private PersonModel _UnSellectedPerson;
+        public PersonModel UnSellectedPerson
+        {
+            get
+            {
+                return _UnSellectedPerson;
+            }
+            set
+            {
+                if (_UnSellectedPerson != value)
+                {
+                    _UnSellectedPerson = value;
+                    OnPropoertyChanged(nameof(UnSellectedPerson));
+                    this.EditIsEnabled = true;
+                }
+            }
+        }
+
+        //public ICommand UnSellectedPerson => new RelayCommand(() => Unselected());
+
+        //private void Unselected()
+        //{
+        //    this.EditIsEnabled = false;
+        //}
+
 
         private bool _AddIsEnabled;
         public bool AddIsEnabled
