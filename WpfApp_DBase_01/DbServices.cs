@@ -30,7 +30,14 @@ namespace WpfApp_DBase_01
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            using (var context = new Context())
+            {
+                var person = context.Persons.Where(p => p.Id == id).First();
+
+                context.Persons.Remove(person);
+
+                context.SaveChanges();
+            }
         }
 
         //pobranie z bazy danych elementu o przekazanym id
