@@ -14,5 +14,7 @@ namespace WpfApp_DBase_01.Interfaces
         void Add(PersonModel person);
 
         PersonModel Edit(int id);
+
+        void Delete(int id);
     }
 }

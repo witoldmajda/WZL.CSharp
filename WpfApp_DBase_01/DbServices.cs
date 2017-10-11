@@ -28,6 +28,11 @@ namespace WpfApp_DBase_01
             }
         }
 
+        public void Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         //pobranie z bazy danych elementu o przekazanym id
         public PersonModel Edit(int id)
         {
@@ -42,6 +47,8 @@ namespace WpfApp_DBase_01
                 return selected;
             }
         }
+
+        
 
         public List<PersonModel> Get()
         {            

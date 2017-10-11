@@ -175,7 +175,14 @@ namespace WpfApp_DBase_01.ViewModels
 
         private void DoRefresh()
         {
-            
+            SellectedPerson = null;
+            this.T_Name = null;  // zamiennie this.T_Name = SellectedPerson.Name;
+            this.T_Surname = null;
+            this.T_City = null;
+            this.AddIsEnabled = true;
+            this.SaveIsEnabled = false;
+            this.DeleteIsEnabled = false;
+            this.EditIsEnabled = false;            
         }
 
 
@@ -295,7 +302,8 @@ namespace WpfApp_DBase_01.ViewModels
         {
             this.PersonModel = new PersonModel(T_Name, T_Surname, T_City);
             Services.Add(this.PersonModel);
-                
+            Persons = Services.Get();
+
         }
 
         

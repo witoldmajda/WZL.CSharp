@@ -34,5 +34,7 @@ namespace WpfApp_DBase_01.Views
         {
 
         }
+
+        
     }
 }
