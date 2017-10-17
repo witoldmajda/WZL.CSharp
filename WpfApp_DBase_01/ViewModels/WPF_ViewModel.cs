@@ -56,6 +56,9 @@ namespace WpfApp_DBase_01.ViewModels
 
         public ICommand DeleteCommand => new RelayCommand(() => Delete());
 
+        public ICommand SaveCommand => new RelayCommand(() => Save());
+
+        
 
         private List<PersonModel> _Persons;
         public List<PersonModel> Persons
@@ -322,6 +325,21 @@ namespace WpfApp_DBase_01.ViewModels
             this.SaveIsEnabled = true;
             this.DeleteIsEnabled = true;
             this.EditIsEnabled = true;
+        }
+
+        private void Save()
+        {
+            this.PersonModel.Id = SellectedPerson.Id;
+            this.PersonModel.Name = this.T_Name;
+            this.PersonModel.Surname = this.T_Surname;
+            this.PersonModel.City = this.T_City;
+            Services.Save(this.PersonModel);
+            this.AddIsEnabled = true;
+            this.SaveIsEnabled = false;
+            this.DeleteIsEnabled = false;
+            this.EditIsEnabled = false;
+            SellectedPerson = null;
+            Persons = Services.Get();
         }
 
         private void Delete()

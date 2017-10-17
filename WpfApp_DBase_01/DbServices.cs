@@ -89,5 +89,21 @@ namespace WpfApp_DBase_01
                 return persons;
             }
         }
+
+        public void Save(PersonModel person)
+        {
+            using (var context = new Context())
+            {
+                var personToUpdate = context.Persons.Where(p => p.Id == person.Id).First();
+
+                personToUpdate.Name = person.Name;
+                personToUpdate.Surname = person.Surname;
+                personToUpdate.City = person.City;
+
+                context.Entry(personToUpdate).State = System.Data.Entity.EntityState.Modified;
+
+                context.SaveChanges();
+            }
+        }
     }
 }

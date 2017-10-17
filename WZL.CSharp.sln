@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfTutorialSamples.DataBind
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFMVVMButtons", "WPFMVVMButtons-master\WPFMVVMButtons\WPFMVVMButtons.csproj", "{A74E55E6-CEA4-481C-898F-0E138DDF6035}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KoloryWPF", "KoloryWPF\KoloryWPF.csproj", "{AEF5CF6C-0CD7-4840-89A0-FA7B124D1652}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,6 +101,10 @@ Global
 		{A74E55E6-CEA4-481C-898F-0E138DDF6035}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A74E55E6-CEA4-481C-898F-0E138DDF6035}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A74E55E6-CEA4-481C-898F-0E138DDF6035}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AEF5CF6C-0CD7-4840-89A0-FA7B124D1652}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEF5CF6C-0CD7-4840-89A0-FA7B124D1652}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEF5CF6C-0CD7-4840-89A0-FA7B124D1652}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEF5CF6C-0CD7-4840-89A0-FA7B124D1652}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
