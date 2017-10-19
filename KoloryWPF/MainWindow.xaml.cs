@@ -34,12 +34,25 @@ namespace KoloryWPF
                 (byte)sliderG.Value,
                 (byte)sliderR.Value
                 );
-            (rectangle.Fill as SolidColorBrush).Color = kolor;
+            KolorProstokata = kolor;
         }
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Escape) Close();
+        }
+
+        private Color KolorProstokata
+        {
+            get
+            {
+                return (rectangle.Fill as SolidColorBrush).Color;
+            }
+
+            set
+            {
+                (rectangle.Fill as SolidColorBrush).Color = value;
+            }
         }
     }
 }
