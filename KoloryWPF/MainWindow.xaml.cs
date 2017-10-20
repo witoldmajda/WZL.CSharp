@@ -23,8 +23,11 @@ namespace KoloryWPF
         public MainWindow()
         {
             InitializeComponent();
-            rectangle.Fill = new SolidColorBrush(Colors.Black);
-            sliderR_ValueChanged(null, null);
+            Color kolor = Ustawienia.Czytaj();
+            rectangle.Fill = new SolidColorBrush(kolor);
+            sliderR.Value = kolor.R;
+            sliderG.Value = kolor.G;
+            sliderB.Value = kolor.B;            
         }
 
         private void sliderR_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -32,7 +35,7 @@ namespace KoloryWPF
             Color kolor = Color.FromRgb(
                 (byte)sliderR.Value,
                 (byte)sliderG.Value,
-                (byte)sliderR.Value
+                (byte)sliderB.Value
                 );
             KolorProstokata = kolor;
         }
@@ -40,6 +43,11 @@ namespace KoloryWPF
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Escape) Close();
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            Ustawienia.Zapisz(KolorProstokata);
         }
 
         private Color KolorProstokata
