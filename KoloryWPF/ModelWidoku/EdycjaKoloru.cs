@@ -4,15 +4,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
+using System.ComponentModel;
 
 namespace KoloryWPF.ModelWidoku
 {
     using Model;
     
 
-    public class EdycjaKoloru
+    public class EdycjaKoloru : INotifyPropertyChanged
     {
         private readonly Kolor kolor = Ustawienia.Czytaj();
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void OnPropertyChanged(params string[] nazwyWłasności)
+        {
+            if (PropertyChanged != null)
+            {
+                foreach (string nazwaWłasności in nazwyWłasności)
+                    PropertyChanged(this, new PropertyChangedEventArgs(nazwaWłasności));
+            }
+        }
 
         public byte R
         {
@@ -23,6 +35,7 @@ namespace KoloryWPF.ModelWidoku
             set
             {
                 kolor.R = value;
+                OnPropertyChanged("R", "Color");
             }
         }
 
@@ -35,6 +48,7 @@ namespace KoloryWPF.ModelWidoku
             set
             {
                 kolor.G = value;
+                OnPropertyChanged("G", "Color");
             }
         }
 
@@ -47,6 +61,7 @@ namespace KoloryWPF.ModelWidoku
             set
             {
                 kolor.B = value;
+                OnPropertyChanged("B", "Color");
             }
         }
 
@@ -58,6 +73,8 @@ namespace KoloryWPF.ModelWidoku
             }
             
         }
+
+        
 
         public void Zapisz()
         {
