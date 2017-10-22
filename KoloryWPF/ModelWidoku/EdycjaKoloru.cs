@@ -11,20 +11,20 @@ namespace KoloryWPF.ModelWidoku
     using Model;
     
 
-    public class EdycjaKoloru : INotifyPropertyChanged
+    public class EdycjaKoloru : ObservedObject
     {
         private readonly Kolor kolor = Ustawienia.Czytaj();
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        //public event PropertyChangedEventHandler PropertyChanged;
 
-        protected void OnPropertyChanged(params string[] nazwyWłasności)
-        {
-            if (PropertyChanged != null)
-            {
-                foreach (string nazwaWłasności in nazwyWłasności)
-                    PropertyChanged(this, new PropertyChangedEventArgs(nazwaWłasności));
-            }
-        }
+        //protected void OnPropertyChanged(params string[] nazwyWłasności)
+        //{
+        //    if (PropertyChanged != null)
+        //    {
+        //        foreach (string nazwaWłasności in nazwyWłasności)
+        //            PropertyChanged(this, new PropertyChangedEventArgs(nazwaWłasności));
+        //    }
+        //}
 
         public byte R
         {

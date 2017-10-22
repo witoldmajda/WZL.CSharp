@@ -55,6 +55,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ModelWidoku\EdycjaKoloru.cs" />
+    <Compile Include="ModelWidoku\ObservedObject.cs" />
     <Compile Include="Model\Kolor.cs" />
     <Compile Include="Model\Ustawienia.cs" />
     <Page Include="MainWindow.xaml">
