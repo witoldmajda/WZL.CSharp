@@ -5,24 +5,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
 
-namespace KoloryWPF
+namespace KoloryWPF.Model
 {
     static class Ustawienia
     {
-        public static Color Czytaj()
+        public static Kolor Czytaj()
         {
             Properties.Settings ustawienia = Properties.Settings.Default;
-            Color kolor = new Color()
-            {
-                A = 255,
-                R = ustawienia.R,
-                G = ustawienia.G,
-                B = ustawienia.B
-            };
-            return kolor;
+            return new Kolor(ustawienia.R, ustawienia.G, ustawienia.B);
         }
 
-        public static void Zapisz(Color kolor)
+        public static void Zapisz(Kolor kolor)
         {
             Properties.Settings ustawienia = Properties.Settings.Default;
             ustawienia.R = kolor.R;
