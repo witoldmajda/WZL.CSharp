@@ -41,4 +41,39 @@ namespace KoloryWPF.ModelWidoku
                 modelWidoku.B = 0;           
         }
     }
+
+    public class UstawCommand : ICommand
+    {
+        private readonly EdycjaKoloru modelWidoku;
+
+        public UstawCommand(EdycjaKoloru modelWidoku)
+        {
+            if (modelWidoku == null) throw new ArgumentNullException("modelWidoku");
+            this.modelWidoku = modelWidoku;
+        }
+
+        public event EventHandler CanExecuteChanged
+        {
+            add
+            {
+                CommandManager.RequerySuggested += value;
+            }
+            remove
+            {
+                CommandManager.RequerySuggested -= value;
+            }
+        }
+
+        public bool CanExecute(object parameter)
+        {
+            return true;
+        }
+
+        public void Execute(object parameter)
+        {
+            modelWidoku.R = 255;
+            modelWidoku.G = 255;
+            modelWidoku.B = 255;
+        }
+    }
 }

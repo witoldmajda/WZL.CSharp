@@ -32,6 +32,8 @@
         <TextBlock Height="22" HorizontalAlignment="Right" Margin="10, 0, 10, 40" TextWrapping="Wrap" Text="{Binding ElementName=sliderB, Path=Value}" VerticalAlignment="Bottom" />
         <Button Content="Resetuj" HorizontalAlignment="Left" Margin="10, 0, 0, 10" VerticalAlignment="Bottom" Height="25" Width="75"
                 Command="{Binding Resetuj}" />
+        <Button Content="Ustaw" HorizontalAlignment="Right" Margin="10, 0, 10, 10" VerticalAlignment="Bottom" Height="25" Width="75"
+                Command="{Binding Ustaw}" />
 
 
     </Grid>

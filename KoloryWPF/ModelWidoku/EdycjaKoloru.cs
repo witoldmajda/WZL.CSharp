@@ -37,7 +37,16 @@ namespace KoloryWPF.ModelWidoku
             }
         }
 
+        private ICommand ustawCommand;
 
+        public ICommand Ustaw
+        {
+            get
+            {
+                if (ustawCommand == null) ustawCommand = new UstawCommand(this);
+                return ustawCommand;
+            }
+        }
 
         public byte R
         {
