@@ -9,7 +9,7 @@ using System.ComponentModel;
 namespace KoloryWPF.ModelWidoku
 {
     using Model;
-    
+    using System.Windows.Input;
 
     public class EdycjaKoloru : ObservedObject
     {
@@ -25,6 +25,19 @@ namespace KoloryWPF.ModelWidoku
         //            PropertyChanged(this, new PropertyChangedEventArgs(nazwaWłasności));
         //    }
         //}
+
+        private ICommand resetujCommand;
+
+        public ICommand Resetuj
+        {
+            get
+            {
+                if (resetujCommand == null) resetujCommand = new ResetujCommand(this);
+                return resetujCommand;
+            }
+        }
+
+
 
         public byte R
         {
@@ -65,14 +78,14 @@ namespace KoloryWPF.ModelWidoku
             }
         }
 
-        public Color Color
-        {
-            get
-            {
-                return kolor.ToColor();
-            }
+        //public Color Color
+        //{
+        //    get
+        //    {
+        //        return kolor.ToColor();
+        //    }
             
-        }
+        //}
 
         
 
@@ -82,19 +95,19 @@ namespace KoloryWPF.ModelWidoku
         }
     }
 
-    static class Rozszerzenia
-    {
-        public static Color ToColor(this Kolor kolor)
-        {
-            return new Color()
-            {
-                A = 255,
-                R = kolor.R,
-                G = kolor.G,
-                B = kolor.B
-            };
-        }
-    }
+    //static class Rozszerzenia
+    //{
+    //    public static Color ToColor(this Kolor kolor)
+    //    {
+    //        return new Color()
+    //        {
+    //            A = 255,
+    //            R = kolor.R,
+    //            G = kolor.G,
+    //            B = kolor.B
+    //        };
+    //    }
+    //}
 
     
 }
