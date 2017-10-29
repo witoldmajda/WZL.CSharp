@@ -5,11 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
 using System.ComponentModel;
+using System.Windows.Input;
 
 namespace KoloryWPF.ModelWidoku
 {
     using Model;
-    using System.Windows.Input;
+    
 
     public class EdycjaKoloru : ObservedObject
     {
@@ -26,13 +27,45 @@ namespace KoloryWPF.ModelWidoku
         //    }
         //}
 
-        private ICommand resetujCommand;
+        //private ICommand resetujCommand;
 
+        //public ICommand Resetuj
+        //{
+        //    get
+        //    {
+        //        if (resetujCommand == null) resetujCommand = new ResetujCommand(this);
+        //        return resetujCommand;
+        //    }
+        //}
+
+        // przejście z jednej metody wywoływania polecenia na Relaycommand
+
+
+        public ICommand ZamknijOkno
+        {
+            get
+            {
+                return new RelayCommand(argument => { (argument as System.Windows.Window)?.Close() ;  });
+            }
+        }
+
+        private ICommand resetujCommand;
         public ICommand Resetuj
         {
             get
             {
-                if (resetujCommand == null) resetujCommand = new ResetujCommand(this);
+                if (resetujCommand == null)
+                {
+                    resetujCommand = new RelayCommand(
+                    argument =>
+                    {
+                        R = 0;
+                        G = 0;
+                        B = 0;
+                    },
+                    argument => (R != 0) || (G != 0) || (B != 0)
+                    );                   
+                }
                 return resetujCommand;
             }
         }
@@ -43,7 +76,18 @@ namespace KoloryWPF.ModelWidoku
         {
             get
             {
-                if (ustawCommand == null) ustawCommand = new UstawCommand(this);
+                //if (ustawCommand == null) ustawCommand = new UstawCommand(this);
+                //return ustawCommand;
+
+                if (ustawCommand == null)
+                    ustawCommand = new RelayCommand(
+                        argument =>
+                        {
+                            R = 255;
+                            G = 255;
+                            B = 255;
+                        }
+                        );
                 return ustawCommand;
             }
         }
@@ -98,9 +142,26 @@ namespace KoloryWPF.ModelWidoku
 
         
 
-        public void Zapisz()
+        //public void Zapisz()
+        //{
+        //    Ustawienia.Zapisz(kolor);
+        //}
+
+        private ICommand zapiszCommand;
+        public ICommand Zapisz
         {
-            Ustawienia.Zapisz(kolor);
+            get
+            {
+                if (zapiszCommand == null)
+                    zapiszCommand = new RelayCommand(
+                        argument =>
+                        {
+                            Ustawienia.Zapisz(kolor);
+                        }
+                        );
+                return zapiszCommand;
+            }
+           
         }
     }
 

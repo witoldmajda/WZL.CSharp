@@ -34,8 +34,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Windows.Design.Interaction, Version=4.3.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=x86" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -58,8 +60,10 @@
     <Compile Include="ModelWidoku\EdycjaKoloru.cs" />
     <Compile Include="ModelWidoku\ObservedObject.cs" />
     <Compile Include="ModelWidoku\Polecenia.cs" />
+    <Compile Include="ModelWidoku\RelayCommand.cs" />
     <Compile Include="Model\Kolor.cs" />
     <Compile Include="Model\Ustawienia.cs" />
+    <Compile Include="ZamknięcieOknaPoNaciśnięciuKlawisza.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -91,6 +95,20 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\App.datasource" />
+    <None Include="Properties\DataSources\ByteToDoubleConverter.datasource" />
+    <None Include="Properties\DataSources\ColorToSolidColorBrushConverter.datasource" />
+    <None Include="Properties\DataSources\KoloryWPF.Model.Kolor.datasource" />
+    <None Include="Properties\DataSources\KoloryWPF.Model.Ustawienia.datasource" />
+    <None Include="Properties\DataSources\KoloryWPF.ModelWidoku.EdycjaKoloru.datasource" />
+    <None Include="Properties\DataSources\KoloryWPF.ModelWidoku.ObservedObject.datasource" />
+    <None Include="Properties\DataSources\KoloryWPF.ModelWidoku.RelayCommand.datasource" />
+    <None Include="Properties\DataSources\KoloryWPF.ModelWidoku.ResetujCommand.datasource" />
+    <None Include="Properties\DataSources\KoloryWPF.ModelWidoku.UstawCommand.datasource" />
+    <None Include="Properties\DataSources\KoloryWPF.Properties.Resources.datasource" />
+    <None Include="Properties\DataSources\KoloryWPF.Properties.Settings.datasource" />
+    <None Include="Properties\DataSources\MainWindow.datasource" />
+    <None Include="Properties\DataSources\SkładoweRGBToSolidColorBrushConverter.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -98,6 +116,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
