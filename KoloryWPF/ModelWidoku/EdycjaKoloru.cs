@@ -41,13 +41,13 @@ namespace KoloryWPF.ModelWidoku
         // przejście z jednej metody wywoływania polecenia na Relaycommand
 
 
-        public ICommand ZamknijOkno
-        {
-            get
-            {
-                return new RelayCommand(argument => { (argument as System.Windows.Window)?.Close() ;  });
-            }
-        }
+        //public ICommand ZamknijOkno
+        //{
+        //    get
+        //    {
+        //        return new RelayCommand(argument => { (argument as System.Windows.Window)?.Close() ;  });
+        //    }
+        //}
 
         private ICommand resetujCommand;
         public ICommand Resetuj
