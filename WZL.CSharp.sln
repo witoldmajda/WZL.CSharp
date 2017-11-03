@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.16
+VisualStudioVersion = 15.0.27004.2005
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WZL.CSharpSampleApp1", "WZL.CSharpSampleApp1\WZL.CSharpSampleApp1.csproj", "{7BF07D0E-1B0C-4D3C-89CA-C676961AF551}"
 EndProject
@@ -34,6 +34,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFMVVMButtons", "WPFMVVMButtons-master\WPFMVVMButtons\WPFMVVMButtons.csproj", "{A74E55E6-CEA4-481C-898F-0E138DDF6035}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KoloryWPF", "KoloryWPF\KoloryWPF.csproj", "{AEF5CF6C-0CD7-4840-89A0-FA7B124D1652}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsystentZakupówWPF", "AsystentZakupówWPF\AsystentZakupówWPF.csproj", "{49B3E2AA-2C9E-478A-90C7-B1B1FFE75AAD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -105,6 +107,10 @@ Global
 		{AEF5CF6C-0CD7-4840-89A0-FA7B124D1652}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AEF5CF6C-0CD7-4840-89A0-FA7B124D1652}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AEF5CF6C-0CD7-4840-89A0-FA7B124D1652}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49B3E2AA-2C9E-478A-90C7-B1B1FFE75AAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49B3E2AA-2C9E-478A-90C7-B1B1FFE75AAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49B3E2AA-2C9E-478A-90C7-B1B1FFE75AAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49B3E2AA-2C9E-478A-90C7-B1B1FFE75AAD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
