@@ -11,13 +11,24 @@ namespace AsystentZakupówWPF.ModelWidoku
 {
     public class ModelWidoku : INotifyPropertyChanged
     {
-        private SumowanieKwot model = new SumowanieKwot(1000);
+        private static decimal limit = 2500;
+
+        private SumowanieKwot model = new SumowanieKwot(limit);
+        
 
         public string Suma
         {
             get
             {
                 return model.Suma.ToString();
+            }
+        }
+
+        public decimal Limit
+        {
+            get
+            {
+                return limit;
             }
         }
 

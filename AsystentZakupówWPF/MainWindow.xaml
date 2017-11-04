@@ -4,23 +4,38 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AsystentZakupówWPF"
+        xmlns:mv="clr-namespace:AsystentZakupówWPF.ModelWidoku"
         mc:Ignorable="d"
         ResizeMode="NoResize"
-        Title="Asystent zakupów" Height="200" Width="200">
+        Title="Asystent zakupów" Height="300" Width="200">
+    <Window.DataContext>
+        <mv:ModelWidoku />
+    </Window.DataContext>
+    <Window.Resources>
+        <local:BollToBrushConverter x:Key="boolToBrush" />
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*" />
             <RowDefinition Height="1*" />
             <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
         <TextBlock HorizontalAlignment="Left" Grid.Row="0" FontSize="25" Foreground="Navy" Margin="10">
+                   Limit: 
+            <Run Foreground="Black" FontFamily="Courier New" Text="{Binding Path=Limit, Mode=OneWay}" />
+        </TextBlock>
+        <TextBlock HorizontalAlignment="Left" Grid.Row="1" FontSize="25" Foreground="Navy" Margin="10">
                    Suma: 
-            <Run Foreground="Black" FontFamily="Courier New" Text="0" />
+            <Run Foreground="Black" FontFamily="Courier New" Text="{Binding Path=Suma, Mode=OneWay}" />
         </TextBlock>
 
 
-        <TextBox x:Name="tbKwota" FontSize="30" FontFamily="Courier New" TextAlignment="Right" Margin="10" Grid.Row="1" Text="0" />
-        <Button x:Name="btnDodaj" Content="Dodaj" FontSize="20" Margin="10" Grid.Row="2" />
+        <TextBox x:Name="tbKwota" FontSize="30" FontFamily="Courier New" TextAlignment="Right" Margin="10" Grid.Row="2" Text="0" 
+                 />
+        <Button x:Name="btnDodaj" Content="Dodaj" FontSize="20" Margin="10" Grid.Row="3" Command="{Binding DodajKwotę}"
+                CommandParameter="{Binding ElementName=tbKwota, Path=Text}"
+                />
 
     </Grid>
 </Window>
